@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org" lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Employees - Создание</title>
+    <script th:src="@{/js/script.js}" defer></script>
+</head>
+<body>
+
+<form th:action="@{/create}" method="post" th:object="${employee}">
+    <div>
+        <div th:if="${#fields.hasErrors('firstName')}" th:errors="*{firstName}"></div>
+        <input type="text" th:field="*{firstName}" aria-label="Имя" placeholder="Введите имя"/>
+    </div>
+    <div>
+        <div th:if="${#fields.hasErrors('lastName')}" th:errors="*{lastName}"></div>
+        <input type="text" th:field="*{lastName}" aria-label="Фамилия" placeholder="Введите фамилию"/>
+    </div>
+    <div>
+        <div th:if="${#fields.hasErrors('middleName')}" th:errors="*{middleName}"></div>
+        <input type="text" th:field="*{middleName}" aria-label="Отчество" placeholder="Введите отчество"/>
+    </div>
+    <div>
+        <div th:if="${#fields.hasErrors('phoneNumber')}" th:errors="*{phoneNumber}"></div>
+        <input type="text" th:field="*{phoneNumber}" aria-label="Номер телефона" placeholder="Введите номер телефона"/>
+    </div>
+    <div>
+        <div th:if="${#fields.hasErrors('address')}" th:errors="*{address}"></div>
+        <input type="text" th:field="*{address}" aria-label="Адрес проживания" placeholder="Введите адресс проживания"/>
+    </div>
+    <div>
+        <select aria-label="Страна" id="country-select">
+            <option value="0" selected>Выберите страну</option>
+            <option th:each="country : ${countries}" th:value="${country.id}" th:text="${country.name}"></option>
+        </select>
+    </div>
+    <div>
+        <div th:if="${#fields.hasErrors('city.id')}" th:errors="*{city.id}"></div>
+        <select th:field="*{city.id}" aria-label="Город" id="city-select">
+            <option value="0" selected>Выберете город</option>
+        </select>
+    </div>
+    <input type="submit" value="Создать">
+</form>
+</body>
+</html>

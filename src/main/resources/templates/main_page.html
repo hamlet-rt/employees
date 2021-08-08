@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html xmlns = "http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org" lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>Employees - Главная</title>
+</head>
+<body>
+<form th:action="@{/}" method="get">
+    <input type="text" name="searchString" placeholder="Введите ФИО" aria-label="ФИО"/>
+    <input type="submit" value="Поиск"/>
+</form>
+    <table>
+        <thead>
+        <tr>
+            <th>Имя</th>
+            <th>Фамилия</th>
+            <th>Отчество</th>
+            <th>Номер телефона</th>
+            <th>Страна</th>
+            <th>Город</th>
+            <th>Адрес</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each="employee : ${employees}">
+            <td th:text="${employee.firstName}"></td>
+            <td th:text="${employee.lastName}"></td>
+            <td th:text="${employee.middleName}"></td>
+            <td th:text="${employee.phoneNumber}"></td>
+            <td th:text="${employee.city.country.name}"></td>
+            <td th:text="${employee.city.name}"></td>
+            <td th:text="${employee.address}"></td>
+        </tr>
+        </tbody>
+    </table>
+</body>
+</html>
