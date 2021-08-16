@@ -13,7 +13,7 @@ countrySelect.onchange = () => {
         }
         while (citySelect.childElementCount > 1){
             citySelect.removeChild(citySelect.lastChild);
-        };
+        }
         let cities = JSON.parse(xhr.response);
         for (let city of cities){
             let option = document.createElement('option');
@@ -21,6 +21,5 @@ countrySelect.onchange = () => {
             option.innerText = city.name;
             citySelect.appendChild(option);
         }
-
     };
 };
