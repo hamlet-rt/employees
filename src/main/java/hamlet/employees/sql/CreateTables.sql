@@ -17,9 +17,9 @@ values ('Артём', 'Вершило', 'Сергеевич', '+7(701)569-96-77'
 
 create table `countries`
 (
-    `id`    bigint unsigned aouto_increment,
-    `code`  varchar not null,
-    `name` varchar not null,
+    `id`    bigint unsigned auto_increment,
+    `code`  varchar(50) not null,
+    `name` varchar(50) not null,
     primary key (`id`)
 );
 
@@ -33,7 +33,7 @@ values ('KZ', 'Казахстан'),
 
 create table `cities`
 (
-    `id`    bigint unsigned aouto_increment,
+    `id`    bigint unsigned auto_increment,
     `county_id` bigint,
     `name`  varchar (50) not null,
     primary key (`id`),
