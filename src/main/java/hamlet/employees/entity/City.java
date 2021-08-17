@@ -17,7 +17,7 @@ public class City {
 
     @ManyToOne
     @JsonIgnore
-    @JoinColumn(name = "county_id")
+    @JoinColumn(name = "country_id")
     private Country country;
 
     @OneToMany(mappedBy = "city")
