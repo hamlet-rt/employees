@@ -34,10 +34,10 @@ values ('KZ', 'Казахстан'),
 create table `cities`
 (
     `id`    bigint unsigned auto_increment,
-    `county_id` bigint,
+    `country_id` bigint unsigned,
     `name`  varchar (50) not null,
     primary key (`id`),
-    foreign key (county_id) references countries(id)
+    foreign key (country_id) references countries(id)
 );
 
 insert into `cities` (county_id, name)
